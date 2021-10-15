@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+ 
+<title> {% block title%} Boogle Game  {% endblock%} </title>
+ 
+{% block content%} 
+
+    <div class="nav">
+        <div class="score-keeper">
+            <p class="highScore"> Current Score : </p>
+            <p class="score"> 0 </p>
+        </div>
+
+        <div class="countdown">
+            <p>Remaining time : </p>
+            <p class="time"> 60 </p>
+        </div>
+
+        <div class="more-stats">
+            <p class="highest-score"> High Score : </p>
+            <p class="highest-score-number"> 0 </p>
+        </div>
+    </div>
+
+    
+    <div class="Game">
+        <div class="respond">
+            <p class="response"></p>
+        </div>
+
+
+        {% for item in game_board %} 
+            <div class="game_board"> {{item}} </div> 
+        {% endfor%}
+
+        <div class="submit-section">
+            <form action="/words" method="post" class="word-form">
+                <input type="text" placeholder="Guess a word" name="word" class="wordInput"> 
+                <button id="submit_guess-word">Submit Your Guess</button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
